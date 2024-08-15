@@ -15,7 +15,7 @@ public class JWTSecurityTokenGenerator implements SecurityTokenGenerator{
         Map<String,Object> claims=new HashMap<>();
         claims.put("userId",user.getUserId());
         System.out.println(claims);
-        return generateToken(claims, "subject");
+        return generateToken(claims, user.getUserId());
     }
     public String generateToken(Map<String,Object> claims,String subject) {
         String jwtToken= Jwts.builder()
